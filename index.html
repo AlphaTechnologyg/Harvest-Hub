@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harvest Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <script defer src="app.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Harvest Hub</h1>
+        <p>Conecta agricultores con compradores de productos frescos</p>
+        <nav>
+            <a href="#" id="contacto">📞 Contacta aquí</a>
+            <a href="#" id="sugerencias-btn">💡 Sugerencias</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="productos">
+            <h2>Productos Disponibles</h2>
+            <div class="grid" id="lista-productos"></div>
+        </section>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-price"></p>
+            <p>Elige un método de pago:</p>
+            <a id="paypal-link" href="#" target="_blank" class="pay-button">PayPal</a>
+            <a id="venmo-link" href="#" target="_blank" class="pay-button">Venmo</a>
+            <a id="card-link" href="#" target="_blank" class="pay-button">Tarjeta de Crédito</a>
+        </div>
+    </div>
+
+    <div id="sugerencias-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Envíanos tus sugerencias</h2>
+            <form id="sugerencias-form">
+                <input type="text" id="nombre" placeholder="Nombre" required>
+                <input type="text" id="apellido" placeholder="Apellido" required>
+                <input type="email" id="correo" placeholder="Correo Electrónico" required>
+                <input type="text" id="direccion" placeholder="Dirección">
+                <textarea id="nota" placeholder="Escribe tu sugerencia aquí..." required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Harvest Hub - Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('Service Worker registrado', reg))
+                .catch(err => console.error('Error registrando SW', err));
+        }
+    </script>
+</body>
+</html>
